@@ -1,25 +1,24 @@
 from fpdf import FPDF
+from fpdf.enums import XPos, YPos
 
 # Create a simple PDF about Huskies
 pdf = FPDF()
 pdf.add_page()
-pdf.set_font("Arial", 'B', 16)
-pdf.cell(0, 10, "All About Huskies", ln=True, align='C')
+pdf.set_font("Helvetica", 'B', 16)
+pdf.cell(0, 10, "All About Huskies", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
 
-pdf.set_font("Arial", '', 12)
-text = """
-Huskies are a type of working dog originally bred by indigenous peoples of the Arctic for sled pulling.
-They are known for their thick fur coats, erect triangular ears, and distinctive markings.
+pdf.set_font("Helvetica", '', 12)
+# Remove leading newline and strip the text to avoid formatting issues
+text = """Huskies are a type of working dog originally bred by indigenous peoples of the Arctic for sled pulling. They are known for their thick fur coats, erect triangular ears, and distinctive markings.
 
-Huskies are intelligent, energetic, and independent, which can make them both a joy and a challenge to train.
-They require regular exercise and mental stimulation to stay happy and healthy.
+Huskies are intelligent, energetic, and independent, which can make them both a joy and a challenge to train. They require regular exercise and mental stimulation to stay happy and healthy.
 
 Due to their friendly and gentle nature, Huskies are often great with families and children. However, they are also known for being escape artists and need secure environments.
 
-Whether used for sledding, companionship, or simply admired for their beauty, Huskies are truly remarkable dogs.
-"""
+Whether used for sledding, companionship, or simply admired for their beauty, Huskies are truly remarkable dogs."""
 
 pdf.multi_cell(0, 10, text)
 
 # Save the PDF
 pdf.output("Huskies_Info.pdf")
+
