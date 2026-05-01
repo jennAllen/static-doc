@@ -1,0 +1,7 @@
+---                                                                                                                                                                                                    
+  title: "Test Rendering Error"                                                                                                                                                                          
+  format: html                                                                                                                                                                                           
+  ---                                                                                                                                                                                                    
+                                                                                                                                                                                                         
+  ```{r}
+  stop("This will cause a rendering error")
